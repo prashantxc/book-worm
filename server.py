@@ -17,7 +17,7 @@ def get_title_result():
     book_response = get_book.get_by_title()
 
     return jsonify({
-        "news": book_response
+        "urls": book_response
     })
 
 @app.route("/getAuthor")
@@ -26,7 +26,16 @@ def get_author_result():
     book_response = get_book.get_by_author()
 
     return jsonify({
-        "news": book_response
+        "urls": book_response
+    })
+
+@app.route("/getTitleFilter")
+def get_title_filter_result():
+    """API end point for Book Request"""
+    book_response = get_book.get_title_filter()
+
+    return jsonify({
+        "urls": book_response
     })
 
 

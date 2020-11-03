@@ -6,19 +6,29 @@ Flask server for libgenesis API
 
 from flask import Flask, jsonify
 
-import get_book as getBook
+import get_book
 
 
 app = Flask(__name__)
 
-@app.route("/getBook")
-def get_url_result():
+@app.route("/getTitle")
+def get_title_result():
     """API end point for Book Request"""
-    news_response = getBook.get_by_title()
+    book_response = get_book.get_by_title()
 
     return jsonify({
-        "news": news_response
+        "news": book_response
     })
+
+@app.route("/getAuthor")
+def get_author_result():
+    """API end point for Book Request"""
+    book_response = get_book.get_by_author()
+
+    return jsonify({
+        "news": book_response
+    })
+
 
 # Test API
 @app.route("/ok")

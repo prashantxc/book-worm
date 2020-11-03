@@ -9,7 +9,7 @@ from libgen_api import LibgenSearch
 
 book = LibgenSearch()
 
-title = "A brief History of Time"
+title = "Astronomy"
 author = "Albert Einstein"
 
 def get_by_title():
@@ -24,3 +24,14 @@ def get_by_author():
     response_on_author = book.search_author(author)
 
     return response_on_author
+
+def get_title_filter():
+    """Returns Book on the basis of title and corresponding filter"""
+    title_filter = {
+        "Author": "Robert",
+        "Extension": "pdf"
+    }
+    
+    response_title_filter = book.search_title_filtered(title, title_filter)
+
+    return response_title_filter
